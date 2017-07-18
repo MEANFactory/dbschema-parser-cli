@@ -1,0 +1,40 @@
+{
+  "name": "dbschema-parser-cli",
+  "version": "1.0.0",
+  "description": "Command line interface for dbschema-parser",
+  "bin": {
+    "dbschema": "./index.js"
+  },
+  "keywords": [
+    "dbschema",
+    "parser",
+    "json",
+    "javascript",
+    "mysql"
+  ],
+  "author": {
+    "name": "MEAN Factory",
+    "email": "info@meanfactory.com",
+    "url": "http://www.meanfactory.com"
+  },
+  "contributors": [
+    {
+      "name": "Fred Lackey",
+      "email": "fred.lackey@gmail.com",
+      "url": "http://www.fredlackey.com"
+    }
+  ],
+  "license": "Apache-2.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MEANFactory/dbschema-parser-cli.git"
+  },
+  "bugs": {
+    "url": "https://github.com/MEANFactory/dbschema-parser-cli/issues"
+  },
+  "homepage": "https://github.com/MEANFactory/dbschema-parser-cli#readme",
+  "dependencies": {
+    "commander": "^2.11.0",
+    "dbschema-parser": "^1.0.0"
+  }
+}
