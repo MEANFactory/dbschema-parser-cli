@@ -8,10 +8,15 @@ var fs        = require('fs'),
     program   = require('commander');
 
 program
-  .version('1.0.0')
-  .option('-f, --format [value]', 'Output format. defaults to mongoose')
+  .version('1.1.0')
+  .option('-d, --database [value]', 'Selected database (default: all)')
+  .option('-e, --enhance', 'Use enhanced output (if available) (default: false)')
+  .option('-f, --format [value]', 'Output format (default: mongoose)')
   .option('-i, --input <path>', 'DbSchema file.')
-  .option('-o, --output <path>', 'Output folder path')
+  .option('-o, --output <path>', 'Output folder path (default: %current%/%datetime%)')
+  .option('-r, --reduce', 'Reduce output path for single objects (default: false)')
+  .option('-s, --schema [value]', 'Selected schema (default: all)')
+  .option('-I, --index', 'Include index files (default: false)')
   .option('-O, --overwrite', 'Overwrite existing file (default: false)')
   .parse(process.argv);
 
@@ -25,7 +30,10 @@ if (typeof generator === 'string') {
   process.exit(1);
 }
 
-if (!_.strings.isValid(program.input) || !_.files.exists(program.input)) {
+if (!_.strings.isValid(program.input)) {
+  console.log('Input path is required.');
+  process.exit(1);
+} else if (!_.files.exists(program.input)) {
   console.log('Invalid input path supplied.');
   process.exit(1);
 }
@@ -55,7 +63,7 @@ if (['undefined', 'string'].indexOf(typeof program.output) < 0) {
   process.exit(1);
 }
 
-var worker = new generator.Worker(parser, program.output);
+var worker = new generator.Worker(parser, program);
 worker.save();
 
 // -----------------------------------------------------------------------------
