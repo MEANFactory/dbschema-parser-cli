@@ -5,10 +5,11 @@ var fs        = require('fs'),
     dbSchema  = require('dbschema-parser'),
     _         = dbSchema._,
     path      = require('path'),
+    pkg       = require('./package.json'),
     program   = require('commander');
 
 program
-  .version('1.1.0')
+  .version(pkg.version)
   .option('-d, --database [value]', 'Selected database (default: all)')
   .option('-e, --enhance', 'Use enhanced output (if available) (default: false)')
   .option('-f, --format [value]', 'Output format (default: mongoose)')
