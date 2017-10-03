@@ -35,6 +35,6 @@
   "homepage": "https://github.com/MEANFactory/dbschema-parser-cli#readme",
   "dependencies": {
     "commander": "^2.11.0",
-    "dbschema-parser": "1.2.3"
+    "dbschema-parser": "^1.2.3"
   }
 }
